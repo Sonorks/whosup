@@ -1,0 +1,32 @@
+<nav class="navbar navbar-light navbar-expand-md navigation-clean-button">
+  <div class="container">
+    <!-- <img class="navbarImg" alt="NavBar Image"> -->
+    .............
+    <div class="row">
+      <div id="navcol-1" class="col-md-12">
+        <span class="navbar-text actions">
+          <div class="col">
+            <div ngbDropdown class="dropdown-dashboard">
+              <label for="dropdownBasic1" style="color:#fefefe" >Bienvenido {{usuario}}</label>
+              <button class="btn btnDropdown btnDropdownDashboard" id="dropdownBasic1" ngbDropdownToggle></button>
+              <div ngbDropdownMenu aria-labelledby="dropdownBasic1" style="z-index: 3; position:static">
+                <button class="dropdown-item" (click)="showMetrics()">Ver/Ocultar Resumen de cuenta</button>
+                <button class="dropdown-item" (click)="showTests()">Ver/Ocultar Pruebas de tecnologías</button>
+                <button class="dropdown-item" (click)="logout()">Salir</button>
+              </div>
+            </div>
+          </div>
+        </span>
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="row">
+    <app-complete-register *ngIf="testsVisibility" id="dashboardRegister" class="col-md-3 col-sm-12"></app-complete-register>
+    <div id="dashboardNews" class="col-md-5 col-sm-12" style="text-align:center; background-color:#fefefe">
+      <div>Ofertas y convocatorias</div>
+    </div>
+    <div *ngIf="metricsVisibility" id="dashboardMetrics" class="col-md-4 col-sm-12" style="text-align:center; background-color:#efefef">
+      <h1>Resumen cuenta.</h1>
+    </div>
+</div>

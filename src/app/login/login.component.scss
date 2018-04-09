@@ -1,0 +1,60 @@
+.navigation-clean-button{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background: #fff;
+    color: #333;
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
+    margin-bottom: 0;
+}
+
+.navbar-expand-md{
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+}
+
+.navbar{
+    position: relative;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: .5rem 1rem;
+    background-color: #0E5183;
+}
+
+article,aside,dialog,figcaption,figure,footer,header,hgroup,main,nav,section{
+    display: block
+}
+
+.login-clear{
+    background: #f1f7fc;
+    margin: 80px 0;
+    width: 60%;
+    padding-bottom: 3%;
+}
+
+.navigation-clean-button .navbar-text .action-button, .navigation-clean-button .navbar-text 
+.action-button:active, .navigation-clean-button .navbar-text .action-button:hover {
+    background: #DAE3E5;
+    font-size: inherit;
+    color: #fff;
+    box-shadow: none;
+    padding: .5rem 1rem;
+    transition: background-color 0.25s;
+    font-size: inherit;
+}
+
+.navbarImg{
+    content: url('');
+}
+
+.linkedLogin{
+    background-image :url('/resources/images/linkedin.png') no-repeat;
+}

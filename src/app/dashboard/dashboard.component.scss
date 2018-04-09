@@ -1,0 +1,89 @@
+article,aside,dialog,figcaption,figure,footer,header,hgroup,main,nav,section{
+    display: block
+}
+
+.navigation-clean-button .navbar-text .action-button, .navigation-clean-button .navbar-text 
+.action-button:active, .navigation-clean-button .navbar-text .action-button:hover {
+    background: #E98619;
+    font-size: inherit;
+    color: #fff;
+    box-shadow: none;
+    padding: .5rem 1rem;
+    transition: background-color 0.25s;
+    font-size: inherit;
+}
+
+label{
+    text-align: center;
+    margin-left: 15px;
+    font-weight: 900;
+}
+
+.newsFeed{
+    width: 650px;
+    height: 1000px;
+}
+.navigation-clean-button{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background: #fff;
+    color: #333;
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
+    margin-bottom: 0;
+}
+
+.navbar-expand-md{
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+}
+
+.navbar{
+    position: relative;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: .5rem 1rem;
+    background-color: #0E5183;
+}
+
+.navbar a {
+    float: left;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.dropdown-menu{
+    position: fixed;
+}
+.dropdown-item {
+    float: none;
+    color: black;
+    display: block;
+    text-align: left;
+}
+.dropdown-item:hover {
+    background-color: #D16D21;
+}
+.show {
+    display: block;
+}
+
+.btnDropdownDashboard {
+    background-color: #D16D21;
+    color: #fff;
+}
+
+.navbarImg{
+    content: url('');
+}

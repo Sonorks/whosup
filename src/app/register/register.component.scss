@@ -1,0 +1,129 @@
+article,aside,dialog,figcaption,figure,footer,header,hgroup,main,nav,section{
+    display: block
+}
+
+.login-clear{
+    background: #f1f7fc;
+    margin: 80px 0;
+    width: 80%;
+    padding-bottom: 3%;
+}
+
+.navigation-clean-button .navbar-text .action-button, .navigation-clean-button .navbar-text 
+.action-button:active, .navigation-clean-button .navbar-text .action-button:hover {
+    background: #BFC3BA;
+    font-size: inherit;
+    color: #fff;
+    box-shadow: none;
+    padding: .5rem 1rem;
+    transition: background-color 0.25s;
+    font-size: inherit;
+}
+
+.landingInfo{
+    position: inherit;
+    margin-top: 7%;
+    color:#fefefe;
+    font-size: 2em;
+    padding: 3% 8% ;
+    text-align: left;
+    z-index: 2;
+}
+
+.landingInfo h2{
+    font-size: 2.2em;
+    font-family: Brandon Grotesque Medium;
+}
+
+.imageBackgroundLanding{
+    background-image: url("https://www.lanacea.pt/wp-content/uploads/2015/12/blog-rede-contactos-lanacea.jpg");
+    background-size: 100%;
+    height: 100%;
+    width: 100%;
+}
+
+.landingOverlay{
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    opacity:0.3;
+    position: absolute;
+}
+
+.registerForm{
+    text-align: center;
+    padding-top: 8%;
+}
+
+.registerForm input{
+    border: 1px #0E5183 solid;
+    width: 80%;
+    height: 40px;
+    margin: 2px !important;
+}
+.registerForm label{
+    width: 80%;
+    text-align: left;
+    font-size: 10px;
+}
+.registerForm #terminos{
+    height: 15px;
+    margin: 0px;
+    width: 15px;
+    padding-top: 0;
+}
+
+.registerTitle{
+    background-color: #0E5183;
+    color:#fefefe;
+    text-align: center;
+    padding-top: 3%;
+    padding-bottom: 3%;
+
+}
+.tooltip {
+    display: inline-block;    
+    }
+.tooltip .tooltiptext {
+    margin-left:9px;
+    width : 320px;
+    visibility: hidden;
+    background-color: #FFF;
+    border-radius:4px;
+    border: 1px solid #aeaeae;
+    position: absolute;
+    z-index: 1;
+    padding: 5px;
+    margin-top : -15px; /* according to application */ 
+    opacity: 0;
+    transition: opacity 1s;
+}
+.tooltip .tooltiptext::after {
+    content: " ";
+    position: absolute;
+    top: 5%;
+    right: 100%; /* To the left of the tooltip */
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent #aeaeae transparent transparent;
+}
+
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+input:invalid:not(:placeholder-shown) {
+    border: 2px solid red !important;
+    background-color: #ff000018
+    }
+input:valid{
+    border:1.5px solid green !important;
+    background: url('../resources/images/check.svg');
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: right;
+}

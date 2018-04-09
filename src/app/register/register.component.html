@@ -1,0 +1,39 @@
+<div id="registerComponent">
+  <div class="imageBackgroundLanding">
+    <div class="row">
+      <div class="col-md-8 col-sm-12 landingInfo">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/wuo13FrNX6g?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      </div>
+      <div class="col-md-4 col-sm-12">
+        <div class="login-clear">
+          <div class="registerTitle">
+            <h2>REGISTRATE</h2>
+          </div>
+          <form name="registerForm" id="registerForm" class="registerForm" #f="ngForm" (ngSubmit)="f.valid && checked()" novalidate>
+            <div data-tip="Ingrese su nombre" class="form-group">
+              <input class="form-group" placeholder="Name" type="text" #name="ngModel" name="name" [(ngModel)]="model.name" pattern="[a-zA-Z ]{3,}" required />
+            </div>
+            <div class="form-group">
+                <input class="form-group" placeholder="Lastname" type = "text" #lastname="ngModel" name="lastname" [(ngModel)]="model.lastname" pattern="[a-zA-Z ]{3,}" required />
+              </div>
+            <div class="form-group">
+                <input class="form-group" placeholder="E-mail" type="email" #email="ngModel" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" [(ngModel)]="model.email" required />
+            </div>
+            <div class="form-group">
+                <input class="form-group" placeholder="Password" minlength="8" type = "password" #password="ngModel" name="password" [(ngModel)]="model.password" required />
+            </div>
+            <div class="form-group">
+                <input class="form-group" placeholder="Repeat your password" minlength="8" type= "password" #password2="ngModel" name="password2" [(ngModel)]="model.password2" required />
+            </div>
+            <div class="form-group">
+                <label><input type="checkbox" id="terminos" required/>He leido y acepto los términos de la <a href="#">protección de datos personales</a></label>
+            </div>
+            <div class="form-group">
+              <button style="background-color: #0E5183; color:white" class="btn" >I'm UP!</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

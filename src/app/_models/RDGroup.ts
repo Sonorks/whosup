@@ -1,0 +1,28 @@
+export class RDGroup {
+    id:Number;
+    rdgroup:String;
+    summary:String;
+    department:String;
+    institution:String;
+    pitch:String;
+    pitchLink:String;
+    address:String;
+    region:String;
+    country:String;
+    state:String;
+    city:String;
+    website:String;
+    rtName:String;
+    rtLinkedin:String;
+    rtTwitter:String;
+    rtPosition:String;
+    rtField:String;
+    researchLine:String;
+    ecosystem:String;
+    cell:String;
+    technology:String;
+    rlDescription:String;
+    rlSolve:String;
+    rlApplication:String;
+    rlFocus:String;
+}
