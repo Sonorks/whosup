@@ -16,6 +16,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { CompleteRegisterComponent } from './complete-register/complete-register.component';
 import { FilterPipe } from './filter.pipe';
 import { LinkedInSdkModule } from 'angular-linkedin-sdk';
+import { OffersComponent } from './offers/offers.component';
+import { MetricsComponent } from './metrics/metrics.component';
 
 
 @NgModule({
@@ -26,7 +28,9 @@ import { LinkedInSdkModule } from 'angular-linkedin-sdk';
     LoginComponent,
     DashboardComponent,
     CompleteRegisterComponent,
-    FilterPipe
+    FilterPipe,
+    OffersComponent,
+    MetricsComponent
   ],
   imports: [
     BrowserModule,

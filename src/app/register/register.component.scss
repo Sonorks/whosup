@@ -38,8 +38,9 @@ article,aside,dialog,figcaption,figure,footer,header,hgroup,main,nav,section{
 .imageBackgroundLanding{
     background-image: url("https://www.lanacea.pt/wp-content/uploads/2015/12/blog-rede-contactos-lanacea.jpg");
     background-size: 100%;
-    height: 100%;
-    width: 100%;
+    height: auto;
+    width: auto;
+    background-repeat: no-repeat;
 }
 
 .landingOverlay{
@@ -56,7 +57,7 @@ article,aside,dialog,figcaption,figure,footer,header,hgroup,main,nav,section{
 }
 
 .registerForm input{
-    border: 1px #0E5183 solid;
+    border: 1px #456d8a solid;
     width: 80%;
     height: 40px;
     margin: 2px !important;
@@ -74,7 +75,7 @@ article,aside,dialog,figcaption,figure,footer,header,hgroup,main,nav,section{
 }
 
 .registerTitle{
-    background-color: #0E5183;
+    background-color: #456d8a;
     color:#fefefe;
     text-align: center;
     padding-top: 3%;
@@ -126,4 +127,11 @@ input:valid{
     background-size: 20px;
     background-repeat: no-repeat;
     background-position: right;
+}
+
+
+.linkedinLogo{
+    width: 145px;
+    height: 34px;
+    background: url('../resources/images/linkedinRegister.png');
 }

@@ -1,6 +1,6 @@
 <div *ngIf="true">
   
-  <div class="actorType" *ngIf="true" style="background-color:#efefef;">
+  <div class="actorType" *ngIf="true" >
     <h4>¿En qué tecnología quieres validar tus conocimientos?</h4>
     <button class="btn mybtnForm" (click)="setActor('company')">Java</button><br/>
     <button class="btn mybtnForm" (click)="setActor('rdgroup')">PHP</button><br/>
@@ -8,7 +8,7 @@
     <button class="btn mybtnForm" (click)="setActor('investor')">React</button><br/>
   </div>
 
-  <div *ngIf="isCompany" style="background-color:#efefef;">
+  <div *ngIf="isCompany" >
       <ngb-tabset>
         <ngb-tab title="General Info">
           <ng-template ngbTabContent>
@@ -263,7 +263,7 @@
       </ngb-tabset>
   </div>
 
-  <div *ngIf="isRdGroup" style="background-color:#efefef;">
+  <div *ngIf="isRdGroup" >
     <ngb-tabset>
       <ngb-tab title="General Info">
         <ng-template ngbTabContent>
@@ -834,7 +834,7 @@
     </ngb-tabset>
   </div>
 
-  <div class="actorType"  *ngIf="isCompany || isRdGroup || isStartup || isInvestor" style="background-color:#efefef;">
+  <div class="actorType"  *ngIf="isCompany || isRdGroup || isStartup || isInvestor" >
     <button [disabled]="!getPermission()" *ngIf="newActor" class="btn mybtnForm" id="resetButton" (click)="setActor('reset')">Start again</button><br/>
   </div>
 </div>

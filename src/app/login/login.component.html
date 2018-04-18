@@ -8,8 +8,8 @@
             <form name="loginForm" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
               <input placeholder="Correo electronico" name="loginEmail" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" [(ngModel)]="model.email" #email="ngModel" required>
               <input placeholder="Contraseña" name="loginPassword" type="password" minlength="8" [(ngModel)]="model.password" #password="ngModel" required>
-              <button style="background-color: #DAE3E5; color:black" class="btn">Ingresar</button>
-              <button style="background-color: #DAE3E5; color:black" class="btn" (click)="loginLI()">Login with LinkedIN</button>
+              <button style="background-color: #DAE3E5; color:black" class="btn">Ingresar</button><font color="white"> o con:  </font>
+              <button style=" color:black" class="btn linkedinLogo" (click)="loginLI()"></button>
               <div *ngIf="f.submitted && !email.valid" style="color:#fefefe">Por favor utilice un correo válido.</div>
               <div *ngIf="f.submitted && !password.valid" style="color:#fefefe">Por favor ingrese una contraseña válida</div>
             </form>

@@ -26,8 +26,15 @@
     -ms-flex-pack: justify;
     justify-content: space-between;
     padding: .5rem 1rem;
-    background-color: #0E5183;
+    background-color: #456d8a;
 }
+
+.linkedinLogo{
+    width: 145px;
+    height: 34px;
+    background: url('../resources/images/linkedin.png');
+}
+
 
 article,aside,dialog,figcaption,figure,footer,header,hgroup,main,nav,section{
     display: block

@@ -22,11 +22,7 @@
   </div>
 </nav>
 <div class="row">
-    <app-complete-register *ngIf="testsVisibility" id="dashboardRegister" class="col-md-3 col-sm-12"></app-complete-register>
-    <div id="dashboardNews" class="col-md-5 col-sm-12" style="text-align:center; background-color:#fefefe">
-      <div>Ofertas y convocatorias</div>
-    </div>
-    <div *ngIf="metricsVisibility" id="dashboardMetrics" class="col-md-4 col-sm-12" style="text-align:center; background-color:#efefef">
-      <h1>Resumen cuenta.</h1>
-    </div>
+    <app-complete-register *ngIf="testsVisibility" id="dashboardRegister" class="col-md-3 col-sm-12" style="background-color:#fefefe"></app-complete-register>
+    <app-offers class="col-md-5 col-sm-12" style="text-align:center; background-color:#fefefe"></app-offers> 
+    <app-metrics *ngIf="metricsVisibility" id="dashboardMetrics" class="col-md-4 col-sm-12" style="text-align:center; background-color:#fefefe">></app-metrics> 
 </div>

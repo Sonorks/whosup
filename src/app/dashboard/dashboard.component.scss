@@ -4,7 +4,7 @@ article,aside,dialog,figcaption,figure,footer,header,hgroup,main,nav,section{
 
 .navigation-clean-button .navbar-text .action-button, .navigation-clean-button .navbar-text 
 .action-button:active, .navigation-clean-button .navbar-text .action-button:hover {
-    background: #E98619;
+    background: #456d8a;
     font-size: inherit;
     color: #fff;
     box-shadow: none;
@@ -51,7 +51,7 @@ label{
     -ms-flex-pack: justify;
     justify-content: space-between;
     padding: .5rem 1rem;
-    background-color: #0E5183;
+    background-color: #456d8a;
 }
 
 .navbar a {
@@ -73,14 +73,14 @@ label{
     text-align: left;
 }
 .dropdown-item:hover {
-    background-color: #D16D21;
+    background-color: #efefef;
 }
 .show {
     display: block;
 }
 
 .btnDropdownDashboard {
-    background-color: #D16D21;
+    background-color: #456d8a;
     color: #fff;
 }
 

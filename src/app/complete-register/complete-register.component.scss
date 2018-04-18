@@ -36,7 +36,7 @@ li button:hover {
     padding-top: 20px;
     border-style: solid !important;
     border-width: 1px;
-    border-color: #0E5183;
+    border-color: #456d8a;
 }
 
 .registerForm{
@@ -46,13 +46,13 @@ li button:hover {
 }
 
 .registerForm input{
-    border: 1px #0E5183 solid;
+    border: 1px #456d8a solid;
     width: 80%;
     height: 40px;
     margin: 2px !important;
 }
 .registerForm textarea{
-    border: 1px #0E5183 solid;
+    border: 1px #456d8a solid;
     width: 80%;
     margin: 2px !important;
 }
@@ -81,7 +81,7 @@ li button:hover {
 }
 
 .registerTitle{
-    background-color: #0E5183;
+    background-color: #456d8a;
     color:#fefefe;
     text-align: center;
     padding-top: 3%;
@@ -95,20 +95,20 @@ li button:hover {
 }
 
 .actorType button{
-    background-color: #0E5183; 
+    background-color: #456d8a; 
     color:#fefefe;
     width: 50% !important;
     margin: 10px;
 }
 
 .actorType #resetButton{
-    background-color: #0E5183 !important; 
+    background-color: #456d8a !important; 
     margin: 15px !important;
     margin-right: 10%;
 }
 
 .mybtnForm{
-    background-color: #0E5183; 
+    background-color: #456d8a; 
     color:#fefefe;
     width: 70%;
     margin: 10px;
@@ -135,3 +135,4 @@ table input[type=number] {
 width: 80%;
 }
   
+
