@@ -24,19 +24,19 @@ export class DashboardComponent implements OnInit {
   showMetrics(){
     if(this.metricsVisibility){
       if(this.testsVisibility == true){
-        document.getElementById("dashboardNews").className = "col-md-9 col-sm-12";
+        document.getElementById("offers").className = "col-md-9 col-sm-12";
         this.metricsVisibility = false;
       } else {
-        document.getElementById("dashboardNews").className = "col-md-12 col-sm-12";
+        document.getElementById("offers").className = "col-md-12 col-sm-12";
         this.metricsVisibility = false;
       }
     }
     else{
       if(this.testsVisibility == true) {
-        document.getElementById("dashboardNews").className = "col-md-5 col-sm-12";
+        document.getElementById("offers").className = "col-md-5 col-sm-12";
         this.metricsVisibility = true;
       } else {
-        document.getElementById("dashboardNews").className = "col-md-8 col-sm-12";
+        document.getElementById("offers").className = "col-md-8 col-sm-12";
         this.metricsVisibility = true;        
       }
     }
@@ -44,19 +44,19 @@ export class DashboardComponent implements OnInit {
   showTests(){
     if(this.testsVisibility){
       if(this.metricsVisibility == true){
-        document.getElementById("dashboardNews").className = "col-md-8 col-sm-12";
+        document.getElementById("offers").className = "col-md-8 col-sm-12";
         this.testsVisibility = false;
       } else { 
-        document.getElementById("dashboardNews").className = "col-md-12 col-sm-12";
+        document.getElementById("offers").className = "col-md-12 col-sm-12";
         this.testsVisibility = false;
       }
     }
     else{
       if(this.metricsVisibility == true){
-        document.getElementById("dashboardNews").className = "col-md-5 col-sm-12";
+        document.getElementById("offers").className = "col-md-5 col-sm-12";
         this.testsVisibility = true;
       } else { 
-        document.getElementById("dashboardNews").className = "col-md-9 col-sm-12";
+        document.getElementById("offers").className = "col-md-9 col-sm-12";
         this.testsVisibility = true;
       }
     }
@@ -70,3 +70,4 @@ export class DashboardComponent implements OnInit {
   }
 
 }
+ 

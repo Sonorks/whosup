@@ -18,6 +18,8 @@ import { FilterPipe } from './filter.pipe';
 import { LinkedInSdkModule } from 'angular-linkedin-sdk';
 import { OffersComponent } from './offers/offers.component';
 import { MetricsComponent } from './metrics/metrics.component';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { ModalModule } from 'ngx-bootstrap';
 
 
 @NgModule({
@@ -38,6 +40,7 @@ import { MetricsComponent } from './metrics/metrics.component';
     FormsModule,
     HttpClientModule,
     NgbModule.forRoot(),
+    ModalModule.forRoot(),
     SweetAlert2Module.forRoot(),
     LinkedInSdkModule
   ],

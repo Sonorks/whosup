@@ -1,7 +1,6 @@
 <nav class="navbar navbar-light navbar-expand-md navigation-clean-button">
   <div class="container">
-    <!-- <img class="navbarImg" alt="NavBar Image"> -->
-    .............
+    <img class="whosupLogo" alt="WhosUpLogo"> 
     <div class="row">
       <div id="navcol-1" class="col-md-12">
         <span class="navbar-text actions">
@@ -23,6 +22,6 @@
 </nav>
 <div class="row">
     <app-complete-register *ngIf="testsVisibility" id="dashboardRegister" class="col-md-3 col-sm-12" style="background-color:#fefefe"></app-complete-register>
-    <app-offers class="col-md-5 col-sm-12" style="text-align:center; background-color:#fefefe"></app-offers> 
+    <app-offers id="offers" class="col-md-5 col-sm-12" style="text-align:center; background-color:#fefefe"></app-offers> 
     <app-metrics *ngIf="metricsVisibility" id="dashboardMetrics" class="col-md-4 col-sm-12" style="text-align:center; background-color:#fefefe">></app-metrics> 
 </div>

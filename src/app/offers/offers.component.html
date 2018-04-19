@@ -1,24 +1,95 @@
 <div class="card">
   <div class="card-body">
-    <h4 class="card-title">Oferta 1</h4>
-    <p class="card-text">Se buscan empleados para blablablabla</p>
-    <a href="#" class="card-link">Detalles de convocatoria</a>
-    <a href="#" class="card-link">Perfil de empresa ofertante</a>
+    <h4 class="card-title">DESARROLLADOR JAVA</h4>
+    <img class="card-img-top avatar" src="http://www.ruana.edu.co/wp-content/uploads/2016/08/escUdea.png" alt="Card image">
+    Universidad de Antioquia.
+    <div class="card">
+      <p class="card-body">Se solicita desarrollador Java con experiencia en Spring
+        para desarrollo de plataforma mensajería. 
+        <br/><strong>Duración:</strong> 6 Meses.<br/> 
+        <strong>Salario: </strong>2'000.000 Mensual.
+      </p>
+    </div>
+    <button type="button" class="btn btn-primary" (click)="ofertaCompleta.show()">
+      Ver oferta completa
+    </button>
+    <button type="button" class="btn btn-primary" (click)="perfilEmpresa.show()">
+      Ver perfil ofertante
+    </button>
   </div>
 </div>
 <div class="card">
   <div class="card-body">
-    <h4 class="card-title">Oferta 1</h4>
-    <p class="card-text">Se buscan empleados para blablablabla</p>
-    <a href="#" class="card-link">Detalles de convocatoria</a>
-    <a href="#" class="card-link">Perfil de empresa ofertante</a>
-  </div>
+    <h4 class="card-title">Desarrollador Frontend</h4>
+    <img class="card-img-top avatar" src="http://www.ruana.edu.co/wp-content/uploads/2016/08/escUdea.png" alt="Card image">
+    Universidad de Antioquia.
+    <div class="card">
+      <p class="card-body">Se solicita desarrollador Frontend con conocimientos en Javascript,
+        Typescript, CSS y HTML5. 
+        <br/> <strong>Duración: </strong>Indefinido. 
+        <br/> <strong>Salario:  </strong>A convenir.
+      </p>
+    </div>
+    <button type="button" class="btn btn-primary" (click)="ofertaCompleta.show()">
+      Ver oferta completa
+    </button>
+    <button type="button" class="btn btn-primary" (click)="perfilEmpresa.show()">
+      Ver perfil ofertante
+    </button>
+    </div>
 </div>
 <div class="card">
   <div class="card-body">
-    <h4 class="card-title">Oferta 1</h4>
-    <p class="card-text">Se buscan empleados para blablablabla</p>
-    <a href="#" class="card-link">Detalles de convocatoria</a>
-    <a href="#" class="card-link">Perfil de empresa ofertante</a>
+    <h4 class="card-title">Soporte aplicativo Java</h4>
+    <img class="card-img-top avatar" src="http://www.ruana.edu.co/wp-content/uploads/2016/08/escUdea.png" alt="Card image">
+    Universidad de Antioquia.
+    <div class="card">
+      <p class="card-body">Se solicita desarrollador Java con experiencia en JSF para
+        brindar soporte a plataforma bibliotecaria.
+        <br/><strong>Duración: </strong>6 Meses.
+        <br/><strong>Salario: </strong>A convenir.
+      </p>
+    </div>
+    <button type="button" class="btn btn-primary" (click)="ofertaCompleta.show()">
+      Ver oferta completa
+    </button>
+    <button type="button" class="btn btn-primary" (click)="perfilEmpresa.show()">
+      Ver perfil ofertante
+    </button>
   </div>
+</div>
+
+<div class="modal fade" bsModal #ofertaCompleta="bs-modal" [config]="{backdrop: 'static'}"
+     tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">Titulo oferta laboral completo</h4>
+      </div>
+      <div class="modal-body">
+        Descripción de los cargos laborales, requisitos, duración de contrato y remuneración. <br/>
+        <button type="button" class="btn btn-primary" (click)="Postularse()">
+          Postularse
+        </button>
+        <button type="button" class="btn btn-primary" (click)="ofertaCompleta.hide()">
+          Cerrar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" bsModal #perfilEmpresa="bs-modal" [config]="{backdrop: 'static'}"
+     tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">Nombre completo de empresa</h4>
+      </div>
+      <div class="modal-body">
+        Información relevante de empresa. <br/>
+        <button type="button" class="btn btn-primary" (click)="perfilEmpresa.hide()">
+          Cerrar
+        </button>
+      </div>
 </div>
