@@ -8,7 +8,6 @@ import { Startup } from '../_models/Startup';
 import { Actor } from '../_models/Actor';
 import { Employee } from '../_models/Employee';
 import { User } from '../_models/User';
-import "rxjs/Rx"
 import alertify from 'alertify.js';
 
 var alertify = require('alertify.js');
@@ -20,67 +19,29 @@ var alertify = require('alertify.js');
   providers: [CompleteRegisterService]
 })
 export class CompleteRegisterComponent implements OnInit {
-  general:any={};
-  contact:any={};
-  goals:any={};
-  focus:any={};
-  focusString;
-  energy:any={};
-  materials:any={};
-  life:any={};
-  tic:any={};
-  cleantech:any={};
-  cleantechString;
-  tlr:any={};
-  trlValue = -1;
-  ipProt:any={};
-  ipProtValue = -1;
-  researchLine:any={};
-  researchTeam:any={};
-  rlDescription:any={};
-  founders:any={};
-  filter: any = {};
-  actor: Actor = new Actor;
-  organization: Organization= new Organization;
-  company: Company = new Company;
-  rdgroup: RDGroup = new RDGroup;
-  investor: Investor = new Investor;
-  startup: Startup = new Startup;
-  employee: any = new Employee;
-  user: User = new User;
-  contentLoaded = false;
-  energyShow=false;
-  countries = this.completeRegisterService.getCountries();
-  sizes = this.completeRegisterService.getSizes();
-  years = this.completeRegisterService.getYears();
-  focusItems;
-  energyItems;
-  materialsItems;
-  lifeItems;
-  ticItems;
-  cleantechItems;
-  tlrItems;
-  ipProtItems;
-  techs = null;
-  cells = null;
-  ecosystems;
-  buttonLabel = "Register";
-  pitchCounter = false;
-  summaryCounter = false;
-  RLDescriptionCounter = false;
-  RLSolveCounter = false;
-  RLApplicationCounter = false;
-  organizations = this.completeRegisterService.getOrganizations();
-
-  isCompany=false; isRdGroup=false; isStartup=false; isInvestor=false;
+  isJava= false; isPhp= false; isAngular= false; isReact= false;
+  showTechs = true;
   newActor = false;
-  permission=true;
+  permission = true;
 
   loggedUser = sessionStorage.getItem('user');
   loggedUserId = sessionStorage.getItem('userId');
   constructor(
     private completeRegisterService: CompleteRegisterService
   ) { }
+
+  setVisibility(tech) {
+    this.showTechs = false;
+    if (tech === 'java') {
+      this.isJava = true;
+    }else if (tech === 'php') {
+      this.isPhp = true;
+    }else if (tech === 'angular') {
+      this.isAngular = true;
+    }else if (tech === 'react') {
+      this.isReact = true;
+    }
+  }
 
   ngOnInit() {
 

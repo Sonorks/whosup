@@ -1,260 +1,57 @@
 <div *ngIf="true">
   
-  <div class="actorType" *ngIf="true" >
+  <div class="actorType" *ngIf="showTechs" >
     <h4>¿En qué tecnología quieres validar tus conocimientos?</h4>
-    <button class="btn mybtnForm" (click)="setActor('company')">Java</button><br/>
-    <button class="btn mybtnForm" (click)="setActor('rdgroup')">PHP</button><br/>
-    <button class="btn mybtnForm" (click)="setActor('startup')">Angular</button><br/>
-    <button class="btn mybtnForm" (click)="setActor('investor')">React</button><br/>
+    <button class="btn mybtnForm" (click)="setVisibility('java')">Java</button><br/>
+    <button class="btn mybtnForm" (click)="setVisibility('php')">PHP</button><br/>
+    <button class="btn mybtnForm" (click)="setVisibility('angular')">Angular</button><br/>
+    <button class="btn mybtnForm" (click)="setVisibility('react')">React</button><br/>
   </div>
 
-  <div *ngIf="isCompany" >
+  <div *ngIf="isJava" >
       <ngb-tabset>
-        <ngb-tab title="General Info">
+        <ngb-tab title="Frameworks">
           <ng-template ngbTabContent>
             <h4>General Information</h4>
             <ngb-tabset>
-              <ngb-tab title="General">
+              <ngb-tab title="SPRING">
                 <ng-template ngbTabContent>
                     <form name="generalInfoForm" id="generalInfoForm" class="registerForm" #generalInfoForm="ngForm" novalidate>
-                        <h5>A. GENERAL DESCRIPTION</h5> 
-                          <div class="form-group">
-                            <input class="form-group" [disabled]="!getPermission()" placeholder="Company Name" type="text" #company="ngModel" name="company" [(ngModel)]="general.company" required />
-                          </div>
-                          <div class="form-group">
-                            <textarea rows="4" cols="25" class="form-group" [disabled]="!getPermission()" placeholder="Summary" type="text" #summary="ngModel" name="summary" [(ngModel)]="general.summary" required>
-                            </textarea>
-                          </div>
-                          <div class="form-group">
-                            <input class="form-group" [disabled]="!getPermission()" placeholder="Address" type="text" #address="ngModel" name="address" [(ngModel)]="general.address" required/>
-                          </div>
-                          <div class="form-group">
-                            <label for="region">Region:</label>
-                            <select class="form-group" [disabled]="!getPermission()" style="width: 80%" placeholder="region" name="region" #region="ngModel" [(ngModel)]="general.region">
-                              <option [disabled]="!getPermission()" *ngFor="let region of regions" [value]="region.name">{{region.name}}</option>
-                            </select>
-                          </div>
-                          <div class="form-group">
-                            <label for="country">Country:</label>
-                            <select class="form-group" [disabled]="!getPermission()" style="width: 80%" placeholder="Country" name="country" #country="ngModel" [(ngModel)]="general.country" required>
-                              <option [disabled]="!getPermission()" *ngFor="let country of countries" [value]="country.name">{{country.name}}</option>
-                            </select>
-                          </div>
-                          <div class="form-group">
-                            <label for="state">State:</label>
-                            <select class="form-group" [disabled]="!getPermission()" style="width: 80%" placeholder="state" name="state" #state="ngModel" [(ngModel)]="general.state">
-                              <option [disabled]="!getPermission()" *ngFor="let state of states" [value]="state.name">{{state.name}}</option>
-                            </select>
-                          </div>
-                          <div class="form-group">
-                            <label for="city">City:</label>
-                            <select class="form-group" [disabled]="!getPermission()" style="width: 80%" placeholder="city" name="city" #city="ngModel" [(ngModel)]="general.city">
-                              <option [disabled]="!getPermission()" *ngFor="let city of cities" [value]="city.name">{{city.name}}</option>
-                            </select>
-                          </div>
-                          <div class="form-group">
-                            <input class="form-group" [disabled]="!getPermission()" placeholder="Website" type="url" name="website" #website="ngModel" [(ngModel)]="general.website" required/>
-                          </div>
-                          <div class="form-group">
-                            <input class="form-group" [disabled]="!getPermission()" placeholder="Corporate Twitter" type="url" name="twitter" #twitter="ngModel" [(ngModel)]="general.twitter"/>
-                          </div>
-                          <div class="form-group">
-                            <label for="size">Size:</label>
-                            <select class="form-group" [disabled]="!getPermission()" style="width: 80%" placeholder="Size" name="size" #size="ngModel" [(ngModel)]="general.size" required>
-                              <option [disabled]="!getPermission()" *ngFor="let size of sizes" [value]="size.size">{{size.size}}</option>
-                            </select>
-                          </div>
-                          <div class="form-group">
-                            <label for="establishmentYear">Establishment Year:</label>
-                            <select class="form-group" [disabled]="!getPermission()" style="width: 80%" placeholder="Establishment Year" name="establishmentYear" #establishmentYear="ngModel" [(ngModel)]="general.establishmentYear" required>
-                              <option [disabled]="!getPermission()" *ngFor="let year of years; let i = index" [value]="year">{{i+1900}}</option>
-                            </select>
-                          </div>
-                          <div class="form-group">
-                            <button [disabled]="!getPermission()" style="background-color: #ec843c; color:#fefefe" (click)="generalInfoForm.valid &&  updateActor()" class="btn mybtnForm" >{{buttonLabel}}</button>
-                          </div>
-                        </form>        
+                        <h5>SPRING</h5>       
+                    </form>        
                 </ng-template>
               </ngb-tab>
-              <ngb-tab title="Contact">
+              <ngb-tab title="JSF">
                 <ng-template ngbTabContent>
                   <form name="contactDetailForm" id="contactDetailForm" class="registerForm" #contactDetailForm="ngForm" novalidate>
-                    <h5>B. CONTACT DETAILS</h5>
-                    <div class="form-group">
-                        <input class="form-group" [disabled]="!getPermission()" placeholder="Name" type="text" #name="ngModel" name="name" [(ngModel)]="contact.name" required />
-                    </div>
-                    <div class="form-group">
-                        <input class="form-group" [disabled]="!getPermission()" placeholder="Last Name" type="text" #lastname="ngModel" name="lastname" [(ngModel)]="contact.lastname" required />
-                    </div>
-                    <div class="form-group">
-                        <input class="form-group" [disabled]="!getPermission()" placeholder="Contact Telephone" type="text" #company="ngModel" name="telephone" [(ngModel)]="contact.phone" required />
-                    </div>
-                    <div class="form-group">
-                        <input class="form-group" [disabled]="!getPermission()" placeholder="Contact E-mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="text" #email="ngModel" name="email" [(ngModel)]="contact.mail" />
-                    </div>
-                    <div class="form-group">
-                        <input class="form-group" [disabled]="!getPermission()" placeholder="Skype" type="text" #skype="ngModel" name="skype" [(ngModel)]="contact.skype"/>
-                    </div>
-                    <div class="form-group">
-                        <input class="form-group" [disabled]="!getPermission()" placeholder="LinkedIn" type="text" #linkedIn="ngModel" name="linkedIn" [(ngModel)]="contact.linkedIn" required />
-                    </div>
-                    <div class="form-group">
-                        <input class="form-group" [disabled]="!getPermission()" placeholder="Position" type="text" #position="ngModel" name="position" [(ngModel)]="contact.position" required />
-                    </div>
-                    <div class="form-group">
-                        <button [disabled]="!getPermission()" style="background-color: #ec843c; color:#fefefe" (click)="contactDetailForm.valid &&  updateActor()" class="btn mybtnForm" >{{buttonLabel}}</button>
-                    </div>
+                    <h5>JSF</h5>
+                    
                   </form>
                 </ng-template>
               </ngb-tab>
-              <ngb-tab title="Goals">
+              <ngb-tab title="Hibernate">
                   <ng-template ngbTabContent>
                       <form name="goalsForm" id="goalsForm" class="registerForm" #goalsForm="ngForm" novalidate>
-                        <h5>OPEN INNOVATION GOALS</h5>
-                        <p>What kind of collaboration are you seeking?</p>
-                        <div class="form-group cb-row">
-                          <p placement="right" ngbTooltip="What commercialization is">
-                          <input type="checkbox" class="checkboxes" (click)="setGoal('commercialization')" name="commercialization" value="commercialization" [checked]="goals.commercialization">
-                          Commercialization<br></p>
-                        </div>
-                        <div class="form-group cb-row">
-                          <p placement="right" ngbTooltip="What industrialCollab is">
-                          <input type="checkbox" class="checkboxes" (click)="setGoal('industrialCollab')" name="industrialCollab" value="industrialCollab" [checked]="goals.industrialCollab">
-                          Industrial Collaboration<br></p>
-                        </div>
-                        <div class="form-group cb-row">
-                          <p placement="right" ngbTooltip="What RDCollab is">
-                          <input type="checkbox" class="checkboxes" (click)="setGoal('RDCollab')" name="RDCollab" value="RDCollab" [checked]="goals.RDCollab">
-                          R&D Collaboration<br></p>
-                        </div>
-                        <div class="form-group cb-row">
-                          <p placement="right" ngbTooltip="What RDFunding is">
-                          <input type="checkbox" class="checkboxes" (click)="setGoal('RDFunding')" name="RDFunding" value="RDFunding" [checked]="goals.RDFunding">
-                          R&D Funding<br></p>
-                        </div>
-                        <div class="form-group cb-row">
-                          <p placement="right" ngbTooltip="What strategicInvestment is">
-                          <input type="checkbox" class="checkboxes" (click)="setGoal('strategicInvestment')" name="strategicInvestment" value="strategicInvestment" [checked]="goals.strategicInvestment">
-                          Strategic Investment<br></p>
-                        </div>
-                        <div class="form-group cb-row">
-                          <p placement="right" ngbTooltip="What techAcceleration is">
-                          <input type="checkbox" class="checkboxes" (click)="setGoal('techAcceleration')" name="techAcceleration" value="techAcceleration" [checked]="goals.techAcceleration">
-                          Technology Acceleration<br></p>
-                        </div>
-                        <div class="form-group cb-row">
-                          <p placement="right" ngbTooltip="What techLicensing is">
-                          <input type="checkbox" class="checkboxes" (click)="setGoal('techLicensing')" name="techLicensing" value="techLicensing" [checked]="goals.techLicensing">
-                          Technology Licensing<br></p>
-                        </div>
-                        <div class="form-group">
-                          <button [disabled]="!getPermission()" style="background-color: #ec843c; color:#fefefe" (click)="goalsForm.valid &&  updateActor()" class="btn mybtnForm" >{{buttonLabel}}</button>
-                        </div>
+                        <h5>Hibernate</h5>
                       </form>
                   </ng-template>
                 </ngb-tab>
             </ngb-tabset>
           </ng-template>
         </ngb-tab>
-        <ngb-tab title="Open Innovation">
+        <ngb-tab title="TESTS">
           <ng-template ngbTabContent>
-            <h4>Open Innovation Approach</h4>
             <ngb-tabset>
-              <ngb-tab title="Focus">
+              <ngb-tab title="JUnit">
                 <ng-template ngbTabContent>
                   <form name="innovationFocusForm" id="innovationFocusForm" class="registerForm" #innovationFocusForm="ngForm" novalidate>
-                    <p placement="right" ngbTooltip="What it is">Select the General Industries Application</p>
-                    <div class="form-group cb-row" *ngFor="let item of focusItems;let index = index;trackBy:trackByIndex;">
-                      <p placement="right" ngbTooltip={{item.tip}}>
-                      <input type="checkbox" [checked]="focus[index]" (change)="setFocusItem(index)" class="checkboxes" [value]="item.value" name="item.value">
-                      {{item.value}}<br></p>
-                    </div>
-                    <p placement="right" ngbTooltip="What it is">In which Ecosystem do you want to scout</p>
-                    <div>
-                      <button [disabled]="!getPermission()" class="btn mybtnForm" (click)="energyShow=!energyShow;">ENERGY</button>
-                      <div *ngIf="energyShow">
-                        <div class="form-group cb-row" *ngFor="let item of energyItems;let index = index;trackBy:trackByIndex;">
-                          <p placement="right" ngbTooltip={{item.tip}}>
-                          <input type="checkbox" (click)="setEcosystem(index,'energy')" [checked]="energy[index]" class="checkboxes" [value]="item.value" name="item.value">
-                          {{item.value}}<br></p>
-                        </div>
-                      </div>
-                    </div>
-                    <div>
-                      <button [disabled]="!getPermission()" class="btn mybtnForm" (click)="materialsShow=!materialsShow;">ADVANCES MATERIALS & ELECTRONICS</button>
-                      <div *ngIf="materialsShow">
-                        <div class="form-group cb-row" *ngFor="let item of materialsItems;let index = index;trackBy:trackByIndex;">
-                          <p placement="right" ngbTooltip={{item.tip}}>
-                          <input type="checkbox" class="checkboxes" (click)="setEcosystem(index,'materials')" [value]="item.value" name="item.value" [checked]="materials[index]">
-                          {{item.value}}<br></p>
-                        </div>
-                      </div>
-                    </div>
-                    <div>
-                      <button [disabled]="!getPermission()" class="btn mybtnForm" (click)="lifeShow=!lifeShow;">LIFE SCIENCE</button>
-                      <div *ngIf="lifeShow">
-                        <div class="form-group cb-row" *ngFor="let item of lifeItems;let index = index;trackBy:trackByIndex;">
-                          <p placement="right" ngbTooltip={{item.tip}}>
-                          <input type="checkbox" class="checkboxes" [value]="item.value" (click)="setEcosystem(index,'life')" name="item.value" [checked]="life[index]">
-                          {{item.value}}<br></p>
-                        </div>
-                      </div>
-                    </div>  
-                    <div>
-                      <button [disabled]="!getPermission()" class="btn mybtnForm" (click)="ticShow=!ticShow;">TICs</button>
-                      <div *ngIf="ticShow">
-                        <div class="form-group cb-row" *ngFor="let item of ticItems;let index = index;trackBy:trackByIndex;">
-                          <p placement="right" ngbTooltip={{item.tip}}>
-                          <input type="checkbox" class="checkboxes" (click)="setEcosystem(index,'tic')" [value]="item.value" name="item.value" [checked]="tic[index]">
-                          {{item.value}}<br></p>
-                        </div>
-                      </div>
-                    </div> 
-                    <div>
-                      <button [disabled]="!getPermission()" class="btn mybtnForm" (click)="cleantechShow=!cleantechShow;">CLEANTECH</button>
-                      <div *ngIf="cleantechShow">
-                        <div class="form-group cb-row" *ngFor="let item of cleantechItems;let index = index;trackBy:trackByIndex;">
-                          <p placement="right" ngbTooltip={{item.tip}}>
-                          <input type="checkbox" class="checkboxes" (click)="setEcosystem(index,'cleantech')" [value]="item.value" name="item.value" [checked]="cleantech[index]">
-                          {{item.value}}<br></p>
-                        </div>
-                      </div>
-                    </div>  
-                    <div class="form-group">
-                      <button [disabled]="!getPermission()" style="background-color: #ec843c; color:#fefefe" (click)="innovationFocusForm.valid && updateActor()" class="btn mybtnForm" >Actualizar perfil</button>
-                    </div>
+                    <h3>JUnit forms</h3>
                   </form>
                 </ng-template>
               </ngb-tab>
-              <ngb-tab title="DEV Stage">
+              <ngb-tab title="Other">
                 <ng-template ngbTabContent>
-                  <h4>Stage of Development of Target Products and Technologies</h4>
-                  <h5>Technology readiness levels (TLR)</h5>
-                  <form name="devStageForm" id="devStageForm" class="registerForm" #devStageForm="ngForm" novalidate>
-                    <div class="form-group cb-row" *ngFor="let item of tlrItems;let index = index;trackBy:trackByIndex;">
-                      <p placement="right" ngbTooltip={{item.tip}}>
-                      <input type="checkbox" [checked]="tlr[index]" class="checkboxes" [value]="item.value" name="item.value" (change)="setTlr(index)">
-                      TLR {{index+1}} - {{item.value}}<br></p>
-                    </div>
-                    <div class="form-group">
-                      <button [disabled]="!getPermission()" style="background-color: #ec843c; color:#fefefe" (click)="devStageForm.valid && updateActor()" class="btn mybtnForm" >{{buttonLabel}}</button>
-                    </div>
-                  </form>
-                </ng-template>
-              </ngb-tab>
-              <ngb-tab title="IP Prot" >
-                <ng-template ngbTabContent>
-                  <h4> What type of intellectual property are you interested in?</h4>
-                  <form name="IPProtForm" id="IPProtForm" class="registerForm" #IPProtForm="ngForm" novalidate>
-                    <div class="form-group cb-row" *ngFor="let item of ipProtItems;let index = index;trackBy:trackByIndex;">
-                      <p placement="right" ngbTooltip={{item.tip}}>
-                      <input type="checkbox" [checked]="ipProt[index]" class="checkboxes" [value]="item.value" (change)="setIpProt(index)">
-                      {{item.value}}<br></p>
-                    </div>
-                    <div class="form-group">
-                      <button [disabled]="!getPermission()" style="background-color: #ec843c; color:#fefefe" (click)="IPProtForm.valid && updateActor()" class="btn mybtnForm" >{{buttonLabel}}</button>
-                    </div>
-                  </form>
+                  <h4>Other tests forms</h4>
                 </ng-template>
               </ngb-tab>
             </ngb-tabset>
@@ -263,578 +60,105 @@
       </ngb-tabset>
   </div>
 
-  <div *ngIf="isRdGroup" >
-    <ngb-tabset>
-      <ngb-tab title="General Info">
-        <ng-template ngbTabContent>
-          <h4>General Information</h4>
-          <ngb-tabset>
-            <ngb-tab title="General">
-              <ng-template ngbTabContent>
-                  <form name="generalInfoForm" id="generalInfoForm" class="registerForm" #generalInfoForm="ngForm" novalidate>
-                      <h5>GENERAL DESCRIPTION</h5> 
-                        <div class="form-group">
-                          <input class="form-group" [disabled]="!getPermission()" placeholder="R&D Group" type="text" #rdgroup="ngModel" name="rdgroup" [(ngModel)]="general.rdgroup" required />
-                        </div>
-                        <div class="form-group">
-                          <textarea rows="4" cols="25" class="form-group" [disabled]="!getPermission()" placeholder="Summary" type="text" #summary="ngModel" name="summary" [(ngModel)]="general.summary" required>
-                          </textarea>
-                        </div>
-                        <div class="form-group">
-                          <input class="form-group" [disabled]="!getPermission()" placeholder="Department, Unit or Laboratory" type="text" #unit="ngModel" name="unit" [(ngModel)]="general.unit" required/>
-                        </div>
-                        <div class="form-group">
-                          <input class="form-group" [disabled]="!getPermission()" placeholder="Institution" type="text" #institution="ngModel" name="institution" [(ngModel)]="general.institution" required/>
-                        </div>
-                        <div class="form-group">
-                          <textarea rows="4" cols="25" class="form-group" [disabled]="!getPermission()" placeholder="Elevator Pitch" type="text" #pitch="ngModel" name="summary" [(ngModel)]="general.pitch" required>
-                          </textarea>
-                        </div>
-                        <div class="form-group">
-                          <input class="form-group" [disabled]="!getPermission()" placeholder="Elevator pitch - Video Link" type="text" #pitchVideo="ngModel" name="pitchVideo" [(ngModel)]="general.pitchVideo" required/>
-                        </div>
-                        <div class="form-group">
-                          <input class="form-group" [disabled]="!getPermission()" placeholder="Address" type="text" #address="ngModel" name="address" [(ngModel)]="general.address" required/>
-                        </div>
-                        <div class="form-group">
-                          <label for="region">Region:</label>
-                          <select class="form-group" [disabled]="!getPermission()" style="width: 80%" placeholder="region" name="region" #region="ngModel" [(ngModel)]="general.region">
-                            <option [disabled]="!getPermission()" *ngFor="let region of regions" [value]="region.name">{{region.name}}</option>
-                          </select>
-                        </div>
-                        <div class="form-group">
-                          <label for="country">Country:</label>
-                          <select class="form-group" [disabled]="!getPermission()" style="width: 80%" placeholder="Country" name="country" #country="ngModel" [(ngModel)]="general.country" required>
-                            <option [disabled]="!getPermission()" *ngFor="let country of countries" [value]="country.name">{{country.name}}</option>
-                          </select>
-                        </div>
-                        <div class="form-group">
-                          <label for="state">State:</label>
-                          <select class="form-group" [disabled]="!getPermission()" style="width: 80%" placeholder="state" name="state" #state="ngModel" [(ngModel)]="general.state">
-                            <option [disabled]="!getPermission()" *ngFor="let state of states" [value]="state.name">{{state.name}}</option>
-                          </select>
-                        </div>
-                        <div class="form-group">
-                          <label for="city">City:</label>
-                          <select class="form-group" [disabled]="!getPermission()" style="width: 80%" placeholder="city" name="city" #city="ngModel" [(ngModel)]="general.city">
-                            <option [disabled]="!getPermission()" *ngFor="let city of cities" [value]="city.name">{{city.name}}</option>
-                          </select>
-                        </div>
-                        <div class="form-group">
-                          <input class="form-group" [disabled]="!getPermission()" placeholder="Website" type="url" name="website" #website="ngModel" [(ngModel)]="general.website" required/>
-                        </div>
-                        <div class="form-group">
-                          <button [disabled]="!getPermission()" style="background-color: #ec843c; color:#fefefe" (click)="generalInfoForm.valid && updateActor()" class="btn mybtnForm" >{{buttonLabel}}</button>
-                  </div>
-                </form>
-              </ng-template>
-            </ngb-tab>
-            <ngb-tab title="Team">
-              <ng-template ngbTabContent>
-                <form name="teamForm" id="teamForm" class="registerForm" #teamForm="ngForm" novalidate>
-                  <h5>RESEARCH TEAM</h5>
-                  <div class="form-group">
-                    <input class="form-group" [disabled]="!getPermission()" placeholder="Name" type="text" #name="ngModel" name="name" [(ngModel)]="researchTeam.teamName" required/>
-                  </div>
-                  <div class="form-group">
-                    <input class="form-group" [disabled]="!getPermission()" placeholder="LinkedIn" type="text" #linkedIn="ngModel" name="linkedIn" [(ngModel)]="researchTeam.teamLinkedIn"/>
-                  </div>
-                  <div class="form-group">
-                    <input class="form-group" [disabled]="!getPermission()" placeholder="Twitter" type="text" #teamTwitter="ngModel" name="teamTwitter" [(ngModel)]="researchTeam.teamTwitter"/>
-                  </div>
-                  <div class="form-group">
-                    <input class="form-group" [disabled]="!getPermission()" placeholder="Position" type="text" #teamPosition="ngModel" name="teamPosition" [(ngModel)]="researchTeam.teamPosition" required/>
-                  </div>
-                  <div class="form-group">
-                    <input class="form-group" [disabled]="!getPermission()" placeholder="Field of knoweledge" type="text" #teamField="ngModel" name="teamField" [(ngModel)]="researchTeam.teamField" required/>
-                  </div>
-                  <div class="form-group">
-                    <button [disabled]="!getPermission()" style="background-color: #ec843c; color:#fefefe" (click)="teamForm.valid && loadActor()" class="btn mybtnForm" >{{buttonLabel}}</button>
-                  </div>
-                </form>
-              </ng-template>
-            </ngb-tab>
-            <ngb-tab title="Goals">
+  <div *ngIf="isPhp">
+      <ngb-tabset>
+        <ngb-tab title="Frameworks">
+          <ng-template ngbTabContent>
+            <ngb-tabset>
+              <ngb-tab title="LARAVEL">
                 <ng-template ngbTabContent>
-                    <form name="goalsForm" id="goalsForm" class="registerForm" #goalsForm="ngForm" novalidate>
-                      <h5>OPEN INNOVATION GOALS</h5>
-                      <p>What kind of collaboration are you seeking?</p>
-                      <div class="form-group cb-row">
-                        <p placement="right" ngbTooltip="What commercialization is">
-                        <input type="checkbox" class="checkboxes" name="commercialization" value="commercialization" #commercialization="ngModel" [(ngModel)]="goals.commercialization">
-                        Commercialization<br></p>
-                      </div>
-                      <div class="form-group cb-row">
-                        <p placement="right" ngbTooltip="What industrialCollab is">
-                        <input type="checkbox" class="checkboxes" name="industrialCollab" value="industrialCollab" #industrialCollab="ngModel" [(ngModel)]="goals.industrialCollab">
-                        Industrial Collaboration<br></p>
-                      </div>
-                      <div class="form-group cb-row">
-                        <p placement="right" ngbTooltip="What RDCollab is">
-                        <input type="checkbox" class="checkboxes" name="RDCollab" value="RDCollab" #RDCollab="ngModel" [(ngModel)]="goals.RDCollab">
-                        R&D Collaboration<br></p>
-                      </div>
-                      <div class="form-group cb-row">
-                        <p placement="right" ngbTooltip="What RDFunding is">
-                        <input type="checkbox" class="checkboxes" name="RDFunding" value="RDFunding" #RDFunding="ngModel" [(ngModel)]="goals.RDFunding">
-                        R&D Funding<br></p>
-                      </div>
-                      <div class="form-group cb-row">
-                        <p placement="right" ngbTooltip="What techAcceleration is">
-                        <input type="checkbox" class="checkboxes" name="techAcceleration" value="techAcceleration" #techAcceleration="ngModel" [(ngModel)]="goals.techAcceleration">
-                        Technology Acceleration<br></p>
-                      </div>
-                      <div class="form-group cb-row">
-                        <p placement="right" ngbTooltip="What techLicensing is">
-                        <input type="checkbox" class="checkboxes" name="techLicensing" value="techLicensing" #techLicensing="ngModel" [(ngModel)]="goals.techLicensing">
-                        Technology Licensing<br></p>
-                      </div>
-                      <div class="form-group">
-                        <button [disabled]="!getPermission()" style="background-color: #ec843c; color:#fefefe" (click)="goalsForm.valid" class="btn mybtnForm" >{{buttonLabel}}</button>
-                      </div>
-                    </form>
+                    <form name="generalInfoForm" id="generalInfoForm" class="registerForm" #generalInfoForm="ngForm" novalidate>
+                        <h5>LARAVEL</h5>       
+                    </form>        
                 </ng-template>
               </ngb-tab>
-          </ngb-tabset>
-        </ng-template>
-      </ngb-tab>
-      <ngb-tab title="Research Lines">
-        <ng-template ngbTabContent>
-          <h4 placement="right" ngbTooltip="What it is">RESEARCH LINES</h4>
-          <ngb-tabset>
-            <ngb-tab title="Technology">
-              <ng-template ngbTabContent>
-                <form name="technologyForm" id="technologyForm" class="registerForm" #technologyForm="ngForm" novalidate>
-                  <div class="form-group">
-                    <input class="form-group" [disabled]="!getPermission()" placeholder="What is your line of research?" type="text" #researchLineField="ngModel" name="researchLine" [(ngModel)]="researchLine.researchLine" required/>
-                  </div>
-                  <div class="form-group">
-                    <label for="ecosystem" placement="right" ngbTooltip="The ecosystems...">In what Innovation Ecosystem are you?</label>
-                    <select class="form-group" [disabled]="!getPermission()" (change)="loadCells()" style="width: 80%" placeholder="Ecosystem" name="ecosystem" #ecosystem="ngModel" [(ngModel)]="researchLine.ecosystem" required>
-                      <option [disabled]="!getPermission()" *ngFor="let ecosystem of ecosystems" [value]="ecosystem.value">{{ecosystem.value}}</option>
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <label for="cell" placement="right" ngbTooltip="The cells...">What is the Innovation Cell?</label>
-                    <select class="form-group" [disabled]="!getPermission()" (change)="loadTechs()" style="width: 80%" placeholder="Cell" name="cell" #cell="ngModel" [(ngModel)]="researchLine.cell" required>
-                      <option [disabled]="!getPermission()" *ngFor="let cell of cells" [value]="cell.value">{{cell.value}}</option>
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <label for="techs" placement="right" ngbTooltip="The technologies...">Clasify the Technology</label>
-                    <select class="form-group" [disabled]="!getPermission()" style="width: 80%" placeholder="Tech" name="tech" #tech="ngModel" [(ngModel)]="researchLine.tech" required>
-                      <option [disabled]="!getPermission()" *ngFor="let tech of techs" [value]="tech.value">{{tech.value}}</option>
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <button [disabled]="!getPermission()" style="background-color: #ec843c; color:#fefefe" (click)="technologyForm.valid && updateActor()" class="btn mybtnForm" >Actualizar perfil</button>
-                  </div>
-                </form>
-              </ng-template>
-            </ngb-tab>
-            <ngb-tab title="Description">
-              <ng-template ngbTabContent>
-                <form name="RLDescriptionForm" id="RLDescriptionForm" class="registerForm" #RLDescriptionForm="ngForm" novalidate>
-                  <h4>Describe your Research Line</h4>
-                  <div class="form-group">
-                    <textarea rows="8" cols="25" class="form-group" [disabled]="!getPermission()" placeholder="Describe your Research Line" type="text" #RLDescription="ngModel" name="RLDescription" [(ngModel)]="rlDescription.description" required>
-                    </textarea>
-                  </div>
-                  <div class="form-group">
-                    <textarea rows="8" cols="25" class="form-group" [disabled]="!getPermission()" placeholder="What problem does it solve?" type="text" #RLSolve="ngModel" name="RLSolve" [(ngModel)]="rlDescription.solve" required>
-                    </textarea>
-                  </div>
-                  <div class="form-group">
-                    <textarea rows="8" cols="25" class="form-group" [disabled]="!getPermission()" placeholder="Which are its main applications?" type="text" #RLApplications="ngModel" name="RLApplication" [(ngModel)]="rlDescription.application" required>
-                    </textarea>
-                  </div>
-                  <h5 placement="right" ngbTooltip="According to...">Select the General Industries Application</h5>
-                  <div class="form-group cb-row" *ngFor="let item of focusItems;let index = index;trackBy:trackByIndex;">
-                    <p placement="right" ngbTooltip={{item.tip}}>
-                    <input type="checkbox" class="checkboxes" [value]="item.value" name="item.value" #focus.item="ngModel" [(ngModel)]="focus[index]">
-                    {{item.value}}<br></p>
-                  </div>
-                  <div class="form-group">
-                    <button [disabled]="!getPermission()" style="background-color: #ec843c; color:#fefefe" (click)="RLDescriptionForm.valid &&  updateActor()" class="btn mybtnForm" >{{buttonLabel}}</button>
-                  </div>
-                </form>
-              </ng-template>
-            </ngb-tab>
-            <ngb-tab title="DEV Stage">
-              <ng-template ngbTabContent>
-                <h4>Stage of Development of Target Products and Technologies</h4>
-                <h5>Technology readiness levels (TLR)</h5>
-                <form name="devStageForm" id="devStageForm" class="registerForm" #devStageForm="ngForm" novalidate>
-                  <div class="form-group cb-row" *ngFor="let item of tlrItems;let index = index;trackBy:trackByIndex;">
-                    <p placement="right" ngbTooltip={{item.tip}}>
-                    <input type="checkbox" class="checkboxes" [value]="item.value" name="item.value" #focus.item="ngModel" [(ngModel)]="tlr[index]">
-                    TLR {{index+1}} - {{item.value}}<br></p>
-                  </div>
-                  <div class="form-group">
-                    <button [disabled]="!getPermission()" style="background-color: #ec843c; color:#fefefe" (click)="devStageForm.valid &&  updateActor()" class="btn mybtnForm" >{{buttonLabel}}</button>
-                  </div>
-                </form>
-              </ng-template>
-            </ngb-tab>
-            <ngb-tab title="IP Prot">
-              <ng-template ngbTabContent>
-                <h4> What type of intellectual property are you interested in?</h4>
-                <form name="IPProtForm" id="IPProtForm" class="registerForm" #IPProtForm="ngForm" novalidate>
-                  <div class="form-group cb-row" *ngFor="let item of ipProtItems;let index = index;trackBy:trackByIndex;">
-                    <p placement="right" ngbTooltip={{item.tip}}>
-                    <input type="checkbox" class="checkboxes" [value]="item.value" name="item.value" #ipProt.item="ngModel" [(ngModel)]="ipProt[index]">
-                    {{item.value}}<br></p>
-                  </div>
-                  <div class="form-group">
-                    <button [disabled]="!getPermission()" style="background-color: #ec843c; color:#fefefe" (click)="IPProtForm.valid &&  updateActor()" class="btn mybtnForm" >{{buttonLabel}}</button>
-                  </div>
-                </form>
-              </ng-template>
-            </ngb-tab>
-          </ngb-tabset>
-        </ng-template>
-      </ngb-tab>
-    </ngb-tabset>
-  </div>
+              <ngb-tab title="CODEIGNITER">
+                <ng-template ngbTabContent>
+                  <form name="contactDetailForm" id="contactDetailForm" class="registerForm" #contactDetailForm="ngForm" novalidate>
+                    <h5>CODEIGNITER</h5>
+                  </form>
+                </ng-template>
+              </ngb-tab>
+              <ngb-tab title="CAKEPHP">
+                  <ng-template ngbTabContent>
+                      <form name="goalsForm" id="goalsForm" class="registerForm" #goalsForm="ngForm" novalidate>
+                        <h5>CAKEPHP</h5>
+                      </form>
+                  </ng-template>
+              </ngb-tab>
+            </ngb-tabset>
+          </ng-template>
+        </ngb-tab>
+        <ngb-tab title="TESTS">
+          <ng-template ngbTabContent>
+            <ngb-tabset>
+              <ngb-tab title="PHPUnit">
+                <ng-template ngbTabContent>
+                  <form name="innovationFocusForm" id="innovationFocusForm" class="registerForm" #innovationFocusForm="ngForm" novalidate>
+                    <h3>PHPUnit forms</h3>
+                  </form>
+                </ng-template>
+              </ngb-tab>
+              <ngb-tab title="Other">
+                <ng-template ngbTabContent>
+                  <h4>Other tests forms</h4>
+                </ng-template>
+              </ngb-tab>
+            </ngb-tabset>
+          </ng-template>
+        </ngb-tab>
+      </ngb-tabset>
+    </div>
 
-  <div *ngIf="isStartup || isInvestor" style="background-color: #efefef">
-    <ngb-tabset>
-      <ngb-tab title="Tell us">
-        <ng-template ngbTabContent>
-          <ngb-tabset>
-            <ngb-tab title="Pitch">
-              <ng-template ngbTabContent>
-                <form name="generalInfoForm" id="generalInfoForm" class="registerForm" #generalInfoForm="ngForm" novalidate>
-                  <h5>PITCH</h5> 
-                    <div class="form-group">
-                      <input class="form-group" [disabled]="!getPermission()" placeholder="Company Name" type="text" #company="ngModel" name="company" [(ngModel)]="general.company" required />
-                    </div>
-                    <div class="form-group">
-                      <textarea (click)="showPitchCounter()" rows="4" cols="25" class="form-group" [disabled]="!getPermission()" placeholder="Pitch your awesome disruptive business. Let corporations and investors discover you." type="text" #pitch="ngModel" name="pitch" [(ngModel)]="general.pitch" required>
-                      </textarea><br/>
-                      <div *ngIf="pitchCounter">{{pitch.value.length}}/3000</div>
-                    </div>
-                    <div class="form-group">
-                      <input class="form-group" [disabled]="!getPermission()" placeholder="Elevator pitch - Video Link" type="text" #pitchVideo="ngModel" name="pitchVideo" [(ngModel)]="general.pitchVideo" required/>
-                    </div>
-                    <div class="form-group">
-                      <textarea (click)="showSummaryCounter()" rows="4" cols="25" class="form-group" [disabled]="!getPermission()" placeholder="Give us some information about your story and your dreams." type="text" #summary="ngModel" name="summary" [(ngModel)]="general.summary" required>
-                      </textarea><br/>
-                      <div *ngIf="summaryCounter">{{summary.value.length}}/3000</div>
-                    </div>
-                    <div class="form-group">
-                      <input class="form-group" [disabled]="!getPermission()" placeholder="Address" type="text" #address="ngModel" name="address" [(ngModel)]="general.address" required/>
-                    </div>
-                    <div class="form-group">
-                      <label for="region">Region:</label>
-                      <select class="form-group" [disabled]="!getPermission()" style="width: 80%" placeholder="region" name="region" #region="ngModel" [(ngModel)]="general.region">
-                        <option [disabled]="!getPermission()" *ngFor="let region of regions" [value]="region.name">{{region.name}}</option>
-                      </select>
-                    </div>
-                    <div class="form-group">
-                      <label for="country">Country:</label>
-                      <select class="form-group" [disabled]="!getPermission()" style="width: 80%" placeholder="Country" name="country" #country="ngModel" [(ngModel)]="general.country" required>
-                        <option [disabled]="!getPermission()" *ngFor="let country of countries" [value]="country.name">{{country.name}}</option>
-                      </select>
-                    </div>
-                    <div class="form-group">
-                      <label for="state">State:</label>
-                      <select class="form-group" [disabled]="!getPermission()" style="width: 80%" placeholder="state" name="state" #state="ngModel" [(ngModel)]="general.state">
-                        <option [disabled]="!getPermission()" *ngFor="let state of states" [value]="state.name">{{state.name}}</option>
-                      </select>
-                    </div>
-                    <div class="form-group">
-                      <label for="city">City:</label>
-                      <select class="form-group" [disabled]="!getPermission()" style="width: 80%" placeholder="city" name="city" #city="ngModel" [(ngModel)]="general.city">
-                        <option [disabled]="!getPermission()" *ngFor="let city of cities" [value]="city.name">{{city.name}}</option>
-                      </select>
-                    </div>
-                    <div class="form-group">
-                      <input class="form-group" [disabled]="!getPermission()" placeholder="Website" type="url" name="website" #website="ngModel" [(ngModel)]="general.website" required/>
-                    </div>
-                    <div class="form-group">
-                      <input class="form-group" [disabled]="!getPermission()" placement="right" ngbTooltip="Twitter username" placeholder="Corporate Twitter" type="text" name="twitter" #twitter="ngModel" [(ngModel)]="general.twitter"/>
-                    </div>
-                    <div class="form-group">
-                      <input class="form-group" [disabled]="!getPermission()" placement="right" ngbTooltip="Facebook fanpage" placeholder="Corporate facebook" type="text" name="facebook" #facebook="ngModel" [(ngModel)]="general.facebook"/>
-                    </div>
-                    <div class="form-group">
-                      <input class="form-group" [disabled]="!getPermission()" placement="right" ngbTooltip="Instagram user" placeholder="Corporate Instagram" type="text" name="Instagram" #Instagram="ngModel" [(ngModel)]="general.instagram"/>
-                    </div>
-                    <div class="form-group">
-                      <input class="form-group" [disabled]="!getPermission()" placement="right" ngbTooltip="LinkedIn Page" placeholder="Corporate LinkedIn" type="text" name="linkedIn" #linkedIn="ngModel" [(ngModel)]="general.linkedIn"/>
-                    </div>
-                    <div class="form-group">
-                      <input class="form-group" [disabled]="!getPermission()" placement="right" ngbTooltip="Youtube channel" placeholder="Corporate youtube" type="text" name="youtube" #youtube="ngModel" [(ngModel)]="general.youtube"/>
-                    </div>
-                    <div class="form-group">
-                      <input class="form-group" [disabled]="!getPermission()" placeholder="Number of employees" type="text" name="employees" #employees="ngModel" [(ngModel)]="general.employees"/>
-                    </div>
-                    <div class="form-group">
-                      <label for="establishmentYear">Establishment Year:</label>
-                      <select class="form-group" [disabled]="!getPermission()" style="width: 80%" placeholder="Establishment Year" name="establishmentYear" #establishmentYear="ngModel" [(ngModel)]="general.establishmentYear" required>
-                        <option [disabled]="!getPermission()" *ngFor="let year of years; let i = index" [value]="year">{{i+1900}}</option>
-                      </select>
-                    </div>
-                    <div class="form-group">
-                      <button [disabled]="!getPermission()" style="background-color: #ec843c; color:#fefefe" (click)="generalInfoForm.valid &&  updateActor()" class="btn mybtnForm" >{{buttonLabel}}</button>
-                    </div>
-                  </form>  
-              </ng-template>
-            </ngb-tab>
-            <ngb-tab title="Contact">
-              <ng-template ngbTabContent>
-                <form name="contactDetailForm" id="contactDetailForm" class="registerForm" #contactDetailForm="ngForm" novalidate>
-                  <h5>B. CONTACT DETAILS</h5>
-                  <div class="form-group">
-                      <input class="form-group" [disabled]="!getPermission()" placeholder="Name" type="text" #name="ngModel" name="name" [(ngModel)]="contact.name" required />
-                  </div>
-                  <div class="form-group">
-                      <input class="form-group" [disabled]="!getPermission()" placeholder="Last Name" type="text" #lastname="ngModel" name="lastname" [(ngModel)]="contact.lastname" required />
-                  </div>
-                  <div class="form-group">
-                      <input class="form-group" [disabled]="!getPermission()" placeholder="Contact Telephone" type="text" #company="ngModel" name="telephone" [(ngModel)]="contact.telephone" required />
-                  </div>
-                  <div class="form-group">
-                      <input class="form-group" [disabled]="!getPermission()" placeholder="Contact E-mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="text" #email="ngModel" name="email" [(ngModel)]="contact.email" />
-                  </div>
-                  <div class="form-group">
-                      <input class="form-group" [disabled]="!getPermission()" placeholder="Skype" type="text" #skype="ngModel" name="skype" [(ngModel)]="contact.skype"/>
-                  </div>
-                  <div class="form-group">
-                      <input class="form-group" [disabled]="!getPermission()" placeholder="LinkedIn" type="text" #linkedIn="ngModel" name="linkedIn" [(ngModel)]="contact.linkedIn" required />
-                  </div>
-                  <div class="form-group">
-                      <input class="form-group" [disabled]="!getPermission()" placeholder="Position" type="text" #position="ngModel" name="position" [(ngModel)]="contact.position" required />
-                  </div>
-                  <div class="form-group">
-                      <button [disabled]="!getPermission()" style="background-color: #ec843c; color:#fefefe" (click)="contactDetailForm.valid &&  updateActor()" class="btn mybtnForm" >{{buttonLabel}}</button>
-                  </div>
-                </form>
-              </ng-template>
-            </ngb-tab>
-            <ngb-tab title="Founders">
-              <ng-template ngbTabContent>
-                <form name="foundersForm" id="foundersForm" class="registerForm" #foundersForm="ngForm" novalidate>
-                  <h5>FOUNDERS</h5>
-                  <div class="form-group">
-                      <input class="form-group" [disabled]="!getPermission()" placeholder="Name" type="text" #foundersName="ngModel" name="foundersName" [(ngModel)]="founders.name" required />
-                  </div>
-                  <div class="form-group">
-                      <input class="form-group" [disabled]="!getPermission()" placement="right" ngbTiptool="LinkedIn URL" placeholder="LinkedIn" type="text" #foundersLinkedIn="ngModel" name="foundersLinkedIn" [(ngModel)]="founders.linkedIn"/>
-                  </div>
-                  <div class="form-group">
-                      <input class="form-group" [disabled]="!getPermission()" placement="right" ngbTiptool="Twitter Username" placeholder="Twitter" type="text" #foundersTwitter="ngModel" name="foundersTwitter" [(ngModel)]="founders.twitter" required />
-                  </div>
-                  <div class="form-group">
-                      <input class="form-group" [disabled]="!getPermission()" placeholder="Position" type="text" #foundersPosition="ngModel" name="foundersPosition" [(ngModel)]="founders.position" />
-                  </div>
-                  <div class="form-group">
-                      <input class="form-group" [disabled]="!getPermission()" placeholder="Field of knowledge" type="text" #foundersField="ngModel" name="foundersField" [(ngModel)]="founders.field"/>
-                  </div>
-                  <div class="form-group">
-                      <button [disabled]="!getPermission()" style="background-color: #ec843c; color:#fefefe" (click)="foundersForm.valid && updateActor()" class="btn mybtnForm" >{{buttonLabel}}</button>
-                  </div>
-                </form>
-              </ng-template>
-            </ngb-tab>
-            <ngb-tab title="Team">
-              <ng-template ngbTabContent>
-                <form name="TeamForm" id="TeamForm" class="registerForm" #TeamForm="ngForm" novalidate>
-                  <h5>Team</h5>
-                  <div class="form-group">
-                      <input class="form-group" [disabled]="!getPermission()" placeholder="Name" type="text" #TeamName="ngModel" name="TeamName" [(ngModel)]="researchTeam.name" required />
-                  </div>
-                  <div class="form-group">
-                      <input class="form-group" [disabled]="!getPermission()" placement="right" ngbTiptool="LinkedIn URL" placeholder="LinkedIn" type="text" #TeamLinkedIn="ngModel" name="TeamLinkedIn" [(ngModel)]="researchTeam.linkedIn"/>
-                  </div>
-                  <div class="form-group">
-                      <input class="form-group" [disabled]="!getPermission()" placement="right" ngbTiptool="Twitter Username" placeholder="Twitter" type="text" #TeamTwitter="ngModel" name="TeamTwitter" [(ngModel)]="researchTeam.twitter" required />
-                  </div>
-                  <div class="form-group">
-                      <input class="form-group" [disabled]="!getPermission()" placeholder="Position" type="text" #TeamPosition="ngModel" name="TeamPosition" [(ngModel)]="researchTeam.position" />
-                  </div>
-                  <div class="form-group">
-                      <input class="form-group" [disabled]="!getPermission()" placeholder="Field of knowledge" type="text" #TeamField="ngModel" name="TeamField" [(ngModel)]="researchTeam.field"/>
-                  </div>
-                  <div class="form-group">
-                      <button [disabled]="!getPermission()" style="background-color: #ec843c; color:#fefefe" (click)="TeamForm.valid && updateActor()" class="btn mybtnForm" >{{buttonLabel}}</button>
-                  </div>
-                </form>
-              </ng-template>
-            </ngb-tab>
-            <ngb-tab title="Goals">
-              <ng-template ngbTabContent>
-                <form name="goalsForm" id="goalsForm" class="registerForm" #goalsForm="ngForm" novalidate>
-                  <h5>OPEN INNOVATION GOALS</h5>
-                  <p>What kind of collaboration are you seeking?</p>
-                  <div class="form-group cb-row">
-                    <p placement="right" ngbTooltip="What commercialization is">
-                    <input type="checkbox" class="checkboxes" name="commercialization" value="commercialization" #commercialization="ngModel" [(ngModel)]="goals.commercialization">
-                    Commercialization<br></p>
-                  </div>
-                  <div class="form-group cb-row">
-                    <p placement="right" ngbTooltip="What industrialCollab is">
-                    <input type="checkbox" class="checkboxes" name="industrialCollab" value="industrialCollab" #industrialCollab="ngModel" [(ngModel)]="goals.industrialCollab">
-                    Industrial Collaboration<br></p>
-                  </div>
-                  <div class="form-group cb-row">
-                    <p placement="right" ngbTooltip="What RDCollab is">
-                    <input type="checkbox" class="checkboxes" name="RDCollab" value="RDCollab" #RDCollab="ngModel" [(ngModel)]="goals.RDCollab">
-                    R&D Collaboration<br></p>
-                  </div>
-                  <div class="form-group cb-row">
-                    <p placement="right" ngbTooltip="What RDFunding is">
-                    <input type="checkbox" class="checkboxes" name="RDFunding" value="RDFunding" #RDFunding="ngModel" [(ngModel)]="goals.RDFunding">
-                    R&D Funding<br></p>
-                  </div>
-                  <div class="form-group cb-row">
-                    <p placement="right" ngbTooltip="What strategicInvestment is">
-                    <input type="checkbox" class="checkboxes" name="strategicInvestment" value="strategicInvestment" #strategicInvestment="ngModel" [(ngModel)]="goals.strategicInvestment">
-                    Strategic Investment<br></p>
-                  </div>
-                  <div class="form-group cb-row">
-                    <p placement="right" ngbTooltip="What techAcceleration is">
-                    <input type="checkbox" class="checkboxes" name="techAcceleration" value="techAcceleration" #techAcceleration="ngModel" [(ngModel)]="goals.techAcceleration">
-                    Technology Acceleration<br></p>
-                  </div>
-                  <div class="form-group cb-row">
-                    <p placement="right" ngbTooltip="What techLicensing is">
-                    <input type="checkbox" class="checkboxes" name="techLicensing" value="techLicensing" #techLicensing="ngModel" [(ngModel)]="goals.techLicensing">
-                    Technology Licensing<br></p>
-                  </div>
-                  <div class="form-group">
-                    <button [disabled]="!getPermission()" style="background-color: #ec843c; color:#fefefe" (click)="goalsForm.valid && updateActor()" class="btn mybtnForm" >{{buttonLabel}}</button>
-                  </div>
-                </form>
-              </ng-template>
-            </ngb-tab>
-          </ngb-tabset>
-        </ng-template>
-      </ngb-tab>
-      <ngb-tab title="Technology">
-        <ng-template ngbTabContent>
-          <ngb-tabset>
-            <ngb-tab title="Tech">
-              <ng-template ngbTabContent>
-                <form name="technologyForm" id="technologyForm" class="registerForm" #technologyForm="ngForm" novalidate>
-                  <div class="form-group">
-                    <input class="form-group" [disabled]="!getPermission()" placeholder="What is your line of research?" type="text" #researchLineField="ngModel" name="researchLine" [(ngModel)]="researchLine.researchLine" required/>
-                  </div>
-                  <div class="form-group">
-                    <label for="ecosystem" placement="right" ngbTooltip="The ecosystems...">In what Innovation Ecosystem are you?</label>
-                    <select class="form-group" [disabled]="!getPermission()" (change)="loadCells()" style="width: 80%" placeholder="Ecosystem" name="ecosystem" #ecosystem="ngModel" [(ngModel)]="researchLine.ecosystem" required>
-                      <option [disabled]="!getPermission()" *ngFor="let ecosystem of ecosystems" [value]="ecosystem.name">{{ecosystem.name}}</option>
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <label for="cell" placement="right" ngbTooltip="The cells...">What is the Innovation Cell?</label>
-                    <select class="form-group" [disabled]="!getPermission()" (change)="loadTechs()" style="width: 80%" placeholder="Cell" name="cell" #cell="ngModel" [(ngModel)]="researchLine.cell" required>
-                      <option [disabled]="!getPermission()" *ngFor="let cell of cells" [value]="cell.name">{{cell.name}}</option>
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <label for="techs" placement="right" ngbTooltip="The technologies...">Clasify the Technology</label>
-                    <select class="form-group" [disabled]="!getPermission()" style="width: 80%" placeholder="Tech" name="tech" #tech="ngModel" [(ngModel)]="researchLine.tech" required>
-                      <option [disabled]="!getPermission()" *ngFor="let tech of techs" [value]="tech.name">{{tech.name}}</option>
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <button [disabled]="!getPermission()" style="background-color: #ec843c; color:#fefefe" (click)="technologyForm.valid && updateActor()" class="btn mybtnForm" >Actualizar perfil</button>
-                  </div>
-                </form>
-              </ng-template>
-            </ngb-tab>
-            <ngb-tab title="Description">
-              <ng-template ngbTabContent>
-                <form name="RLDescriptionForm" id="RLDescriptionForm" class="registerForm" #RLDescriptionForm="ngForm" novalidate>
-                  <h4>Describe your Technology</h4>
-                  <div class="form-group">
-                    <textarea (click)="showRLDescriptionCounter()" rows="8" cols="25" class="form-group" [disabled]="!getPermission()" placeholder="Describe your Technology" type="text" #RLDescription="ngModel" name="RLDescription" [(ngModel)]="rlDescription.description" required>
-                    </textarea><br/>
-                    <div *ngIf="RLDescriptionCounter">{{RLDescription.value.length}} / 2000</div>
-                  </div>
-                  <div class="form-group">
-                    <textarea (click)="showRLSolveCounter()" rows="8" cols="25" class="form-group" [disabled]="!getPermission()" placeholder="What problem does it solve?" type="text" #RLSolve="ngModel" name="RLSolve" [(ngModel)]="rlDescription.solve" required>
-                    </textarea><br/>
-                    <div *ngIf="RLSolveCounter">{{RLSolve.value.length}} / 2000</div>
-                  </div>
-                  <div class="form-group">
-                    <textarea (click)="showRLApplicationCounter()" rows="8" cols="25" class="form-group" [disabled]="!getPermission()" placeholder="Which are its main applications?" type="text" #RLApplications="ngModel" name="RLApplication" [(ngModel)]="rlDescription.application" required>
-                    </textarea><br/>
-                    <div *ngIf="RLApplicationCounter">{{RLApplications.value.length}} / 2000</div>
-                  </div>
-                  <h5 placement="right" ngbTooltip="According to...">Select the General Industries Application</h5>
-                  <div class="form-group cb-row" *ngFor="let item of focusItems;let index = index;trackBy:trackByIndex;">
-                    <p placement="right" ngbTooltip={{item.tip}}>
-                    <input type="checkbox" class="checkboxes" [value]="item.value" name="item.value" #focus.item="ngModel" [(ngModel)]="focus[index]">
-                    {{item.value}}<br></p>
-                  </div>
-                  <div class="form-group">
-                    <button [disabled]="!getPermission()" style="background-color: #ec843c; color:#fefefe" (click)="RLDescriptionForm.valid && updateActor()" class="btn mybtnForm" >{{buttonLabel}}</button>
-                  </div>
-                </form>
-              </ng-template>
-            </ngb-tab>
-            <ngb-tab title="Considerations">
-              <ng-template ngbTabContent>
-                <h4>BREAKTHROUGH CONSIDERATIONS</h4>
-                <form name="devStageForm" id="devStageForm" class="registerForm" #devStageForm="ngForm" novalidate>
-                  <p><input type="checkbox" class="checkboxes" value="replaceExistingTech"  name="replace" #replace="ngModel" [(ngModel)]="tlr.replace">
-                  Does your product replace existing technologies?</p>
-                  <p><input type="checkbox" class="checkboxes" value="newMarkets" name="newMarkets" #newMarkets="ngModel" [(ngModel)]="tlr.newMarkets">
-                  Does it address to new markets?</p>
-                  <div class="form-group">
-                    <label for="expectedTime">What is the expected time to market for your technology?</label>
-                    <select class="form-group" [disabled]="!getPermission()" style="width: 80%" name="expectedTime" #expectedTime="ngModel" [(ngModel)]="tlr.expectedTime">
-                      <option value="ready">Allready selling</option>
-                      <option value="oneYear">Less than 1 year</option>
-                      <option value="twoYears">1-2 years</option>
-                      <option value="fourYears">2-4 years</option>
-                      <option value="moreYears">More than 4 years</option>
-                    </select>
-                  </div>
-                  <h5>Technology readiness levels (TLR)</h5>
-                  <div class="form-group cb-row" *ngFor="let item of tlrItems;let index = index;trackBy:trackByIndex;">
-                    <p placement="right" ngbTooltip={{item.tip}}>
-                    <input type="checkbox" class="checkboxes" [value]="item.value" name="item.value" #focus.item="ngModel" [(ngModel)]="tlr[index]">
-                    TLR {{index+1}} - {{item.name}}<br></p>
-                  </div>
-                  <div class="form-group">
-                    <button [disabled]="!getPermission()" style="background-color: #ec843c; color:#fefefe" (click)="devStageForm.valid && updateActor()" class="btn mybtnForm" >{{buttonLabel}}</button>
-                  </div>
-                </form>
-              </ng-template>
-            </ngb-tab>
-            <ngb-tab title="Property Rights">
-              <ng-template ngbTabContent>
-                <form name="IPProtForm" id="IPProtForm" class="registerForm" #IPProtForm="ngForm" novalidate>
-                  <div class="form-group cb-row" *ngFor="let item of ipProtItems;let index = index;trackBy:trackByIndex;">
-                    <p placement="right" ngbTooltip={{item.tip}}>
-                    <input type="checkbox" class="checkboxes" [value]="item.value" name="item.value" #ipProt.item="ngModel" [(ngModel)]="ipProt[index]">
-                    {{item.name}}<br></p>
-                  </div>
-                  <div class="form-group">
-                    <input class="form-group" [disabled]="!getPermission()" placeholder="Attach a link to the full patent/trademark/copyright" type="text" #patentLink="ngModel" name="patentLink" [(ngModel)]="ipProt.patentLink" required />
-                  </div>
-                  <div class="form-group cb-row">
-                    <p>
-                    <input type="checkbox" class="checkboxes" name="fullRights" value="fullRights" #fullRights="ngModel" [(ngModel)]="ipProt.fullRights">
-                    Do you have full unencumbered rights property over the patent?<br></p>
-                  </div>
-                  <div class="form-group">
-                    <button [disabled]="!getPermission()" style="background-color: #ec843c; color:#fefefe" (click)="IPProtForm.valid && updateActor()" class="btn mybtnForm" >{{buttonLabel}}</button>
-                  </div>
-                </form>
-              </ng-template>
-            </ngb-tab>
-          </ngb-tabset>
-        </ng-template>
-      </ngb-tab>
-    </ngb-tabset>
-  </div>
-
-  <div class="actorType"  *ngIf="isCompany || isRdGroup || isStartup || isInvestor" >
-    <button [disabled]="!getPermission()" *ngIf="newActor" class="btn mybtnForm" id="resetButton" (click)="setActor('reset')">Start again</button><br/>
+  <div *ngIf="isAngular || isReact" style="background-color: #efefef">
+      <ngb-tabset>
+          <ngb-tab title="GENERAL">
+            <ng-template ngbTabContent>
+              
+              <ngb-tabset>
+                <ngb-tab title="DATA BINDING">
+                  <ng-template ngbTabContent>
+                      <form name="generalInfoForm" id="generalInfoForm" class="registerForm" #generalInfoForm="ngForm" novalidate>
+                          <h5>DATA BINDING</h5>       
+                      </form>        
+                  </ng-template>
+                </ngb-tab>
+                <ngb-tab title="TYPESCRIPT">
+                  <ng-template ngbTabContent>
+                    <form name="contactDetailForm" id="contactDetailForm" class="registerForm" #contactDetailForm="ngForm" novalidate>
+                      <h5>TYPESCRIPT</h5>
+                      
+                    </form>
+                  </ng-template>
+                </ngb-tab>
+                <ngb-tab title="WEBSERVICES">
+                    <ng-template ngbTabContent>
+                        <form name="goalsForm" id="goalsForm" class="registerForm" #goalsForm="ngForm" novalidate>
+                          <h5>WEBSERVICES</h5>
+                        </form>
+                    </ng-template>
+                  </ngb-tab>
+              </ngb-tabset>
+            </ng-template>
+          </ngb-tab>
+          <ngb-tab title="OTHERS">
+            <ng-template ngbTabContent>
+              <ngb-tabset>
+                <ngb-tab title="CLI">
+                  <ng-template ngbTabContent>
+                    <form name="innovationFocusForm" id="innovationFocusForm" class="registerForm" #innovationFocusForm="ngForm" novalidate>
+                      <h3>CLI forms</h3>
+                    </form>
+                  </ng-template>
+                </ngb-tab>
+                <ngb-tab title="FILTERS">
+                  <ng-template ngbTabContent>
+                    <h4>FILTERS forms</h4>
+                  </ng-template>
+                </ngb-tab>
+              </ngb-tabset>
+            </ng-template>
+          </ngb-tab>
+        </ngb-tabset>
   </div>
 </div>
