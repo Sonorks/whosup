@@ -1,3 +1,22 @@
+<div *ngIf="!nuevaPublicacion">
+  <h3>¿DESEAS AÑADIR TU OFERTA?</h3><br/>
+  <button type="button" class="btn btn-primary" (click)="nuevaPublicacionShow(true)">
+    Nueva publicación
+  </button>
+</div>
+
+<div *ngIf="nuevaPublicacion" class="card">
+  <div class="card-header"><strong>GENERAR NUEVA PUBLICACIÓN</strong></div>
+  <div class="card-body">
+    <input type="text" placeholder="Titulo oferta"><br/>
+    <input type="text" placeholder="Descripción oferta"><br/>
+    <input type="text" placeholder="Conocimientos requeridos"><br/>
+    <input type="text" placeholder="Salario"><br/>
+    <input type="text" placeholder="Duración"><br/>
+    <button type="button" class="btn btn-primary" (click)="anadirPublicacion()">Generar</button>
+    <button type="button" class="btn btn-primary" (click)="nuevaPublicacionShow(false)">Cancelar</button>
+  </div> 
+</div>
 <div class="card">
   <div class="card-body">
     <h4 class="card-title">DESARROLLADOR JAVA</h4>
@@ -68,9 +87,9 @@
       </div>
       <div class="modal-body">
         Descripción de los cargos laborales, requisitos, duración de contrato y remuneración. <br/>
-        <button type="button" class="btn btn-primary" (click)="Postularse()">
+        <button type="button" class="btn btn-primary" (click)="postularse();ofertaCompleta.hide()">
           Postularse
-        </button>
+        </button><br/>
         <button type="button" class="btn btn-primary" (click)="ofertaCompleta.hide()">
           Cerrar
         </button>

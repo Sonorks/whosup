@@ -3,7 +3,7 @@ import { RegisterService } from './register.service';
 import { User } from '../_models/User';
 import alertify from 'alertify.js';
 
-var alertify = require('alertify.js');
+const alertify = require('alertify.js');
 
 @Component({
   selector: 'app-register',
